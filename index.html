@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ImgWindowHeight</title>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		.img-container {
+			position: relative;
+			max-width: 100%;
+			min-height: calc(100vh - 0px);
+			background-image: url('./vodopad.jpg');
+		}
+
+		.arrow {
+			cursor: pointer;
+			width: 65px;
+			border: 1px solid red;
+			border-radius: 100%;
+			text-align: center;
+			position: absolute;
+			top: 80vh;
+			left: 50%;
+			font-size: 50px;
+			font-weight: bold;
+			color: red;
+			margin: 0;
+			padding: 0 15px 5px 15px;
+			animation: arrowDown 3s infinite;
+		}
+
+		@keyframes arrowDown {
+			0% {
+				top: 70vh;
+			}
+			60% {
+				top: 78vh;
+			}
+			100% {
+				top: 70vh;
+
+			}
+		}
+
+		.container {
+			max-width: 100%;
+			min-height: 500px;
+			margin: 0 auto;
+		}
+
+		.block-one {
+			background-color: #ece89d;
+		}
+
+		.block-two {
+			background-color: #5e5373;
+		}
+
+		.block-three {
+			position: relative;
+			background-color: #18b5a4;
+		}
+
+		.arrowTop {
+			cursor: pointer;
+			width: 65px;
+			border: 1px solid red;
+			border-radius: 100%;
+			text-align: center;
+			position: absolute;
+			top: 90vh;
+			left: 50%;
+			font-size: 50px;
+			font-weight: bold;
+			color: red;
+			margin: 0;
+			padding: 0 15px 5px 15px;
+			animation: arrowTop 3s infinite;
+		}
+
+		@keyframes arrowTop {
+			0% {
+				top: 85vh;
+			}
+			60% {
+				top: 90vh;
+			}
+			100% {
+				top: 85vh;
+
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="blockTop" class="img-container">
+		<p id="btnArrow" class="arrow">&#x2193</p>	
+	</div>
+
+	<div id="block-one" class="container block-one">block-one</div>
+	<div id="block-two" class="container block-two">block-two</div>
+	<div id="block-three" class="container block-three">
+		block-three
+		<p id="btnArrowTop" class="arrowTop">&#x2191</p>	
+	</div>
+
+	<script type="text/javascript">
+		const blockOne = document.querySelector('#block-one');
+		const btnArrow = document.querySelector('#btnArrow');
+
+		btnArrow.addEventListener('click', () => {
+			blockOne.scrollIntoView({block: 'center', behavior: 'smooth'});
+		});
+
+		const btnArrowTop = document.querySelector('#btnArrowTop');
+		const blockTop = document.querySelector('#blockTop');
+
+		btnArrowTop.addEventListener('click', () => {
+			blockTop.scrollIntoView({block: 'center', behavior: 'smooth'});
+		});
+	</script>
+</body>
+</html>
